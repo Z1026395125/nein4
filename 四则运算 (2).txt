@@ -1,0 +1,59 @@
+ 1 #include <stdio.h>
+ 2 #include <stdlib.h>
+ 3 #include <time.h>
+ 4 #include <math.h>
+ 5 
+ 6 int main()
+ 7 {
+ 8     int i=0;
+ 9     int n=0;
+10     int x=0;
+11     int type;
+12     char flag;
+13     int left, right;
+14     float result;
+15     printf("请输入要出的题目数量\n");
+16     scanf("%d",&n);
+17     srand(unsigned(time(NULL)));
+18     while(x<n)
+19     {
+20         type = rand() % 4;
+21         left = rand() % 100;
+22         right = rand() % 100;
+23         switch(type)
+24         {
+25         case 0:
+26             printf("%d + %d = ?\n", left, right);
+27             break;
+28         case 1:
+29             printf("%d - %d = ?\n", left, right);
+30             break;
+31         case 2:
+32             printf("%d * %d = ?\n", left, right);
+33             break;
+34         case 3:
+35             printf("%d / %d = ?\n", left, right);
+36             break;
+37         }
+38 
+39         i++;
+40         while(i>=n)
+41         {
+42             printf("一共 %d 题\n",i); 
+43             printf("继续?[Y/N]\n");
+44             fflush(stdin);
+45             scanf("%c",&flag);
+46             if(flag=='Y'||flag=='y')
+47             {
+48                 printf("请输入要出的题目数量\n");
+49                 scanf("%d",&n);
+50                 i=0;
+51                 break;
+52              }
+53             printf("谢谢使用！\n");
+54             fflush(stdin);
+55             getchar();
+56             return 0;
+57         }
+58     }
+59 }
